@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Log-in{% endblock %}
+{% block content %}
+<h1>Login</h1>
+{% if form.errors %}
+<p>Invalid username or password, please try again.</p>
+{% else %}
+<p>Please Login</p>
+{% endif %}
+<div class="login-form">
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <!-- Hidden {{next}} variable is given
+        Django login view will redirect the user to the given URL 
+        the user trieD to access after a successful login. or to -->
+        <input type="hidden" name="next" value="{{next}}">
+        <p><input type="submit" value="Log-in"></p>
+    </form>
+    <p><a href="{% url 'password_reset' %}">Forgot your password</a></p>
+</div>
+{% endblock %}
