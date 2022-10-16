@@ -88,6 +88,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Order Matters, as will be checked by order.
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+]
+
 
 LANGUAGE_CODE = "en-us"
 
