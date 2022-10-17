@@ -7,6 +7,12 @@ __pycache__
 db.sqlite3
 media
 
+# Faked local openssl for social auth
+cert.crt
+.cert.crt
+cert.key
+.cert.key
+
 # Backup files #
 *.bak
 
@@ -132,6 +138,7 @@ GitHub.sublime-settings
 
 # Visual Studio Code #
 .vscode/*
+.vscode
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
