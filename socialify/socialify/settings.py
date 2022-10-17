@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'social_django',
     "django_browser_reload",
+    # Mine
+    'images.apps.ImagesConfig',
 
 ]
     
@@ -115,7 +117,6 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = 'dashboard'
@@ -133,6 +134,6 @@ SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get(
     'SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
-# waiting approval
-SOCIAL_AUTH_TWITTER_KEY = 'XXX'  
-SOCIAL_AUTH_TWITTER_SECRET = 'XXX'
+# Waiting approval
+SOCIAL_AUTH_TWITTER_KEY = os.environ.get('SOCIAL_AUTH_TWITTER_KEY')
+SOCIAL_AUTH_TWITTER_SECRET = os.environ.get('SOCIAL_AUTH_TWITTER_SECRET')
