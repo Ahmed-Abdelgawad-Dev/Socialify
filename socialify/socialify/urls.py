@@ -1,3 +1,4 @@
+from argparse import Namespace
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -10,6 +11,7 @@ urlpatterns = [
     path('social-auth/',
          include('social_django.urls', namespace='social')),
     path("__reload__/", include("django_browser_reload.urls")),
+    path('images/', include('images.urls', namespace='images')),
 ]
 
 if settings.DEBUG:

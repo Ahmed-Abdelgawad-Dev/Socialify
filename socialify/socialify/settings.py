@@ -12,6 +12,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type('application/javascript', '.js', True)
+    mimetypes.add_type('text/css', '.css', True)
+
+
 # ALLOWED_HOSTS = ['socialify.com', 'https://socialify.com', 'localhost', '127.0.0.1']
 ALLOWED_HOSTS = ['*']
 
@@ -29,6 +35,7 @@ INSTALLED_APPS = [
     # 3RD Party
     'django_extensions',
     'social_django',
+    'easy_thumbnails',
     "django_browser_reload",
     # Mine
     'images.apps.ImagesConfig',
@@ -137,3 +144,8 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get(
 # Waiting approval
 SOCIAL_AUTH_TWITTER_KEY = os.environ.get('SOCIAL_AUTH_TWITTER_KEY')
 SOCIAL_AUTH_TWITTER_SECRET = os.environ.get('SOCIAL_AUTH_TWITTER_SECRET')
+
+# Easy thumbnail
+THUMBNAIL_DEBUG = True
+
+
