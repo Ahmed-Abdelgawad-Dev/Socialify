@@ -18,8 +18,8 @@ if DEBUG:
     mimetypes.add_type('text/css', '.css', True)
 
 
-# ALLOWED_HOSTS = ['socialify.com', 'https://socialify.com', 'localhost', '127.0.0.1']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['socialify.com', 'https://socialify.com', 'localhost', '127.0.0.1']
+# ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
