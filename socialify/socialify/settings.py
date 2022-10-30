@@ -21,6 +21,9 @@ if DEBUG:
 ALLOWED_HOSTS = ['socialify.com', 'https://socialify.com', 'localhost', '127.0.0.1']
 # ALLOWED_HOSTS = ['*']
 
+INTERNAL_IPS = [
+    'socialify.com', 'https://socialify.com', 'localhost', "127.0.0.1",
+]
 
 INSTALLED_APPS = [
     # Mine -> Order matter to override django.contrib.admin
@@ -36,6 +39,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'social_django',
     'easy_thumbnails',
+    "debug_toolbar",
     "django_browser_reload",
     # Mine
     'images.apps.ImagesConfig',
@@ -52,6 +56,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "socialify.urls"

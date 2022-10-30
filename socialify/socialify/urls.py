@@ -11,6 +11,7 @@ urlpatterns = [
     path('social-auth/',
          include('social_django.urls', namespace='social')),
     path("__reload__/", include("django_browser_reload.urls")),
+    path('__debug__/', include('debug_toolbar.urls')),
     path('images/', include('images.urls', namespace='images')),
 ]
 
