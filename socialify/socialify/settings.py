@@ -1,7 +1,7 @@
 import os
-from pathlib import Path
 import dotenv
-
+from pathlib import Path
+from django.urls import reverse_lazy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -154,3 +154,6 @@ SOCIAL_AUTH_TWITTER_SECRET = os.environ.get('SOCIAL_AUTH_TWITTER_SECRET')
 THUMBNAIL_DEBUG = True
 
 
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda usr: reverse_lazy('user_detail', args=[usr.username])
+}

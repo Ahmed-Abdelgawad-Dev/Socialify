@@ -1,4 +1,3 @@
-import email
 from django.contrib.auth.models import User
 from django import forms
 from .models import Profile
@@ -23,7 +22,7 @@ class UserRegistrationForm(forms.ModelForm):
         return cd['password2']
     
     def clean_email(self):
-        email_value = self.clean_data['email']
+        email_value = self.cleaned_data['email']
         if User.objects.filter(email=email_value).exists():
             raise forms.ValidationError('Email exists!')
         return email_value
@@ -36,7 +35,7 @@ class UserEditForm(forms.ModelForm):
         fields = ['first_name', 'last_name', 'email']
     
     def clean_email(self):
-        email_value = self.clean_data['email']
+        email_value = self.cleaned_data['email']
         qs = User.objects.exclude(id=self.instance.id).filter(email=email_value)
         if qs.exists():
             raise forms.ValidationError('Email already in use.')
